@@ -57,7 +57,7 @@ public class Caso1_Calculadora {
                 break;
             case 3:
                 resultado = multiplicar(num1, num2);
-                System.out.println("\nResultado: " + num1 " × " + num2 + " = " + resultado);
+                System.out.println("\nResultado: " + num1 + " × " + num2 + " = " + resultado);
                 break;
             case 4:
                 resultado = dividir(num1, num2);
