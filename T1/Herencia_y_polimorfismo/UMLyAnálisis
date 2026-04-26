@@ -1,1 +1,14 @@
+Reproductor de Música App
+public class Cancion {
+    String titulo;
+    String artista;
 
+    public Cancion(String titulo, String artista){
+        this.titulo = titulo;
+        this.artista = artista;
+    }
+
+    public void reproducir(){
+        System.out.println("Reproduciendo: " + titulo);
+    }
+}
