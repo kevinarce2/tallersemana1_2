@@ -1,4 +1,3 @@
-Reproductor de Música App
 public class Cancion {
     String titulo;
     String artista;
