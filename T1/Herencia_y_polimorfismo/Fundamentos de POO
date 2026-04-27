@@ -1,88 +1,59 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
-import javax.sound.sampled.*;
+public class Estudiante {
+    // Atributos privados
+    private String nombre;
+    private int edad;
+    private String carrera;
 
-public class ReproductorMusica extends JFrame {
-
-    private JButton btnCargar, btnPlay, btnPause, btnStop;
-    private JLabel lblCancion;
-    private Clip clip;
-    private AudioInputStream audioStream;
-    private File archivo;
-
-    public ReproductorMusica() {
-        setTitle("APP Reproductor de Música");
-        setSize(400, 250);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new FlowLayout());
-
-        lblCancion = new JLabel("Ninguna canción cargada");
-
-        btnCargar = new JButton("Cargar Música");
-        btnPlay = new JButton("Play");
-        btnPause = new JButton("Pause");
-        btnStop = new JButton("Stop");
-
-        add(lblCancion);
-        add(btnCargar);
-        add(btnPlay);
-        add(btnPause);
-        add(btnStop);
-
-        btnCargar.addActionListener(e -> cargarMusica());
-        btnPlay.addActionListener(e -> reproducir());
-        btnPause.addActionListener(e -> pausar());
-        btnStop.addActionListener(e -> detener());
-
-        setVisible(true);
+    // Constructor
+    public Estudiante(String nombre, int edad, String carrera) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.carrera = carrera;
     }
 
-    private void cargarMusica() {
-        JFileChooser chooser = new JFileChooser();
-        int opcion = chooser.showOpenDialog(this);
-
-        if (opcion == JFileChooser.APPROVE_OPTION) {
-            archivo = chooser.getSelectedFile();
-            lblCancion.setText("Cargado: " + archivo.getName());
-
-            try {
-                if (clip != null) {
-                    clip.close();
-                }
-
-                audioStream = AudioSystem.getAudioInputStream(archivo);
-                clip = AudioSystem.getClip();
-                clip.open(audioStream);
-
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error al cargar archivo");
-            }
-        }
+    // Métodos Getter y Setter
+    public String getNombre() {
+        return nombre;
     }
 
-    private void reproducir() {
-        if (clip != null) {
-            clip.start();
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    private void pausar() {
-        if (clip != null) {
-            clip.stop();
-        }
+    public int getEdad() {
+        return edad;
     }
 
-    private void detener() {
-        if (clip != null) {
-            clip.stop();
-            clip.setFramePosition(0);
-        }
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    // Método para mostrar datos
+    public void mostrarDatos() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Carrera: " + carrera);
+        System.out.println("----------------------");
+    }
+
+    // Método principal
     public static void main(String[] args) {
-        new ReproductorMusica();
+        // Registrar 3 estudiantes
+        Estudiante e1 = new Estudiante("Ronal", 20, "Ingeniería de Sistemas");
+        Estudiante e2 = new Estudiante("María", 22, "Administración");
+        Estudiante e3 = new Estudiante("Carlos", 19, "Contabilidad");
+
+        // Mostrar datos
+        e1.mostrarDatos();
+        e2.mostrarDatos();
+        e3.mostrarDatos();
     }
 }
