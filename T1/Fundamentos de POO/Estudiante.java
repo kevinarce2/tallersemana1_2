@@ -1,0 +1,59 @@
+public class Estudiante {
+    // Atributos privados
+    private String nombre;
+    private int edad;
+    private String carrera;
+
+    // Constructor
+    public Estudiante(String nombre, int edad, String carrera) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.carrera = carrera;
+    }
+
+    // Métodos Getter y Setter
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    // Método para mostrar datos
+    public void mostrarDatos() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Carrera: " + carrera);
+        System.out.println("----------------------");
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+        // Registrar 3 estudiantes
+        Estudiante e1 = new Estudiante("Ronal", 20, "Ingeniería de Sistemas");
+        Estudiante e2 = new Estudiante("María", 22, "Administración");
+        Estudiante e3 = new Estudiante("Carlos", 19, "Contabilidad");
+
+        // Mostrar datos
+        e1.mostrarDatos();
+        e2.mostrarDatos();
+        e3.mostrarDatos();
+    }
+}
